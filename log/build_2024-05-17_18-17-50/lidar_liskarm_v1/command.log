@@ -1,4 +1,0 @@
-Invoking command in '/workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1 -- -j16 -l16
-Invoked command in '/workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1 -- -j16 -l16
-Invoking command in '/workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1
-Invoked command in '/workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1
