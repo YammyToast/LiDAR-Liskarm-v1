@@ -1,0 +1,7 @@
+[01m[K/workspaces/LiDAR-Liskarm-v1/src/lidar_liskarm_v1/src/main.cpp:[m[K In constructor ‘[01m[KLiskarm_Main::Liskarm_Main()[m[K’:
+[01m[K/workspaces/LiDAR-Liskarm-v1/src/lidar_liskarm_v1/src/main.cpp:20:49:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K)[m[K’ token
+   20 |                 500ms, std::bind(&Liskarm_Main::[01;31m[K)[m[K
+      |                                                 [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/liskarm_main.dir/build.make:76: CMakeFiles/liskarm_main.dir/src/main.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/liskarm_main.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

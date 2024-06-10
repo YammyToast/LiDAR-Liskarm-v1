@@ -1,0 +1,68 @@
+[0.000000] (-) TimerEvent: {}
+[0.000251] (lidar_liskarm_v1) JobQueued: {'identifier': 'lidar_liskarm_v1', 'dependencies': OrderedDict()}
+[0.000288] (lidar_liskarm_v1) JobStarted: {'identifier': 'lidar_liskarm_v1'}
+[0.005398] (lidar_liskarm_v1) JobProgress: {'identifier': 'lidar_liskarm_v1', 'progress': 'cmake'}
+[0.006583] (lidar_liskarm_v1) JobProgress: {'identifier': 'lidar_liskarm_v1', 'progress': 'build'}
+[0.006629] (lidar_liskarm_v1) Command: {'cmd': ['/usr/bin/cmake', '--build', '/workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1', '--', '-j16', '-l16'], 'cwd': '/workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1', 'env': OrderedDict([('HOSTNAME', 'e05c8736f431'), ('GIT_ASKPASS', '/vscode/vscode-server/bin/linux-x64/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/vscode/vscode-server/bin/linux-x64/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/bin/helpers/browser.sh'), ('AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS', '1'), ('HOME', '/home/ros'), ('OLDPWD', '/workspaces/LiDAR-Liskarm-v1/src'), ('TERM_PROGRAM_VERSION', '1.89.1'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-9993d87c-1360-4a7c-b674-e40fa2eaeb2f.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/vscode/vscode-server/bin/linux-x64/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/vscode/vscode-server/bin/linux-x64/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('WAYLAND_DISPLAY', 'vscode-wayland-f15ddfa4-6151-447e-8197-56e2753a1297.sock'), ('COLCON_PREFIX_PATH', '/opt/ros/humble'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-16890fe4-54b0-4a30-b492-4a941ce23256.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/vscode/vscode-server/bin/linux-x64/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('XDG_RUNTIME_DIR', '/tmp/user/1000'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/.X11-unix/X0","/home/ros/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/user/1000/vscode-git-0a3ab30b47.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', ''), ('REMOTE_CONTAINERS_DISPLAY_SOCK', '/tmp/.X11-unix/X0'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1'), ('PYTHONPATH', '/opt/ros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.034984] (lidar_liskarm_v1) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target liskarm_main\x1b[0m\n'}
+[0.050660] (lidar_liskarm_v1) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/liskarm_main.dir/src/main.cpp.o\x1b[0m\n'}
+[0.099256] (-) TimerEvent: {}
+[0.199594] (-) TimerEvent: {}
+[0.299907] (-) TimerEvent: {}
+[0.400272] (-) TimerEvent: {}
+[0.500816] (-) TimerEvent: {}
+[0.601352] (-) TimerEvent: {}
+[0.701693] (-) TimerEvent: {}
+[0.801995] (-) TimerEvent: {}
+[0.902343] (-) TimerEvent: {}
+[1.002683] (-) TimerEvent: {}
+[1.103036] (-) TimerEvent: {}
+[1.203429] (-) TimerEvent: {}
+[1.303898] (-) TimerEvent: {}
+[1.404347] (-) TimerEvent: {}
+[1.504669] (-) TimerEvent: {}
+[1.604990] (-) TimerEvent: {}
+[1.705362] (-) TimerEvent: {}
+[1.805841] (-) TimerEvent: {}
+[1.906135] (-) TimerEvent: {}
+[2.006436] (-) TimerEvent: {}
+[2.106741] (-) TimerEvent: {}
+[2.207155] (-) TimerEvent: {}
+[2.307623] (-) TimerEvent: {}
+[2.407957] (-) TimerEvent: {}
+[2.508311] (-) TimerEvent: {}
+[2.608729] (-) TimerEvent: {}
+[2.709090] (-) TimerEvent: {}
+[2.809612] (-) TimerEvent: {}
+[2.909917] (-) TimerEvent: {}
+[3.010224] (-) TimerEvent: {}
+[3.110520] (-) TimerEvent: {}
+[3.210813] (-) TimerEvent: {}
+[3.291307] (lidar_liskarm_v1) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable liskarm_main\x1b[0m\n'}
+[3.310934] (-) TimerEvent: {}
+[3.411305] (-) TimerEvent: {}
+[3.452025] (lidar_liskarm_v1) StdoutLine: {'line': b'[100%] Built target liskarm_main\n'}
+[3.457806] (lidar_liskarm_v1) CommandEnded: {'returncode': 0}
+[3.469810] (lidar_liskarm_v1) JobProgress: {'identifier': 'lidar_liskarm_v1', 'progress': 'install'}
+[3.474286] (lidar_liskarm_v1) Command: {'cmd': ['/usr/bin/cmake', '--install', '/workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1'], 'cwd': '/workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1', 'env': OrderedDict([('HOSTNAME', 'e05c8736f431'), ('GIT_ASKPASS', '/vscode/vscode-server/bin/linux-x64/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('BROWSER', '/vscode/vscode-server/bin/linux-x64/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/bin/helpers/browser.sh'), ('AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS', '1'), ('HOME', '/home/ros'), ('OLDPWD', '/workspaces/LiDAR-Liskarm-v1/src'), ('TERM_PROGRAM_VERSION', '1.89.1'), ('VSCODE_IPC_HOOK_CLI', '/tmp/vscode-ipc-9993d87c-1360-4a7c-b674-e40fa2eaeb2f.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/vscode/vscode-server/bin/linux-x64/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/vscode/vscode-server/bin/linux-x64/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/node'), ('COLORTERM', 'truecolor'), ('REMOTE_CONTAINERS', 'true'), ('WAYLAND_DISPLAY', 'vscode-wayland-f15ddfa4-6151-447e-8197-56e2753a1297.sock'), ('COLCON_PREFIX_PATH', '/opt/ros/humble'), ('ROS_DISTRO', 'humble'), ('REMOTE_CONTAINERS_IPC', '/tmp/vscode-remote-containers-ipc-16890fe4-54b0-4a30-b492-4a941ce23256.sock'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/vscode/vscode-server/bin/linux-x64/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/bin/remote-cli:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('XDG_RUNTIME_DIR', '/tmp/user/1000'), ('REMOTE_CONTAINERS_SOCKETS', '["/tmp/.X11-unix/X0","/home/ros/.gnupg/S.gpg-agent"]'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/tmp/user/1000/vscode-git-0a3ab30b47.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', ''), ('REMOTE_CONTAINERS_DISPLAY_SOCK', '/tmp/.X11-unix/X0'), ('SHELL', '/bin/bash'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/workspaces/LiDAR-Liskarm-v1/build/lidar_liskarm_v1'), ('PYTHONPATH', '/opt/ros/humble/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[3.478396] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.478752] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/lib/lidar_liskarm_v1/liskarm_main\n'}
+[3.479745] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Set runtime path of "/workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/lib/lidar_liskarm_v1/liskarm_main" to ""\n'}
+[3.479826] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/ament_index/resource_index/package_run_dependencies/lidar_liskarm_v1\n'}
+[3.479889] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/ament_index/resource_index/parent_prefix_path/lidar_liskarm_v1\n'}
+[3.480026] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/environment/ament_prefix_path.sh\n'}
+[3.480106] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/environment/ament_prefix_path.dsv\n'}
+[3.480184] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/environment/path.sh\n'}
+[3.480327] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/environment/path.dsv\n'}
+[3.480438] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/local_setup.bash\n'}
+[3.480521] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/local_setup.sh\n'}
+[3.480605] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/local_setup.zsh\n'}
+[3.480675] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/local_setup.dsv\n'}
+[3.480751] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/package.dsv\n'}
+[3.480854] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/ament_index/resource_index/packages/lidar_liskarm_v1\n'}
+[3.480883] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/cmake/lidar_liskarm_v1Config.cmake\n'}
+[3.480910] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/cmake/lidar_liskarm_v1Config-version.cmake\n'}
+[3.480969] (lidar_liskarm_v1) StdoutLine: {'line': b'-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/package.xml\n'}
+[3.481556] (lidar_liskarm_v1) CommandEnded: {'returncode': 0}
+[3.506102] (lidar_liskarm_v1) JobEnded: {'identifier': 'lidar_liskarm_v1', 'rc': 0}
+[3.506895] (-) EventReactorShutdown: {}

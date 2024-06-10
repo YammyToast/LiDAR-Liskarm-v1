@@ -1,0 +1,22 @@
+[35m[1mConsolidate compiler generated dependencies of target liskarm_main[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/liskarm_main.dir/src/main.cpp.o[0m
+[100%] [32m[1mLinking CXX executable liskarm_main[0m
+[100%] Built target liskarm_main
+-- Install configuration: ""
+-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/lib/lidar_liskarm_v1/liskarm_main
+-- Set runtime path of "/workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/lib/lidar_liskarm_v1/liskarm_main" to ""
+-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/ament_index/resource_index/package_run_dependencies/lidar_liskarm_v1
+-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/ament_index/resource_index/parent_prefix_path/lidar_liskarm_v1
+-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/environment/ament_prefix_path.sh
+-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/environment/ament_prefix_path.dsv
+-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/environment/path.sh
+-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/environment/path.dsv
+-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/local_setup.bash
+-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/local_setup.sh
+-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/local_setup.zsh
+-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/local_setup.dsv
+-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/package.dsv
+-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/ament_index/resource_index/packages/lidar_liskarm_v1
+-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/cmake/lidar_liskarm_v1Config.cmake
+-- Up-to-date: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/cmake/lidar_liskarm_v1Config-version.cmake
+-- Installing: /workspaces/LiDAR-Liskarm-v1/install/lidar_liskarm_v1/share/lidar_liskarm_v1/package.xml

@@ -1,0 +1,9 @@
+[35m[1mConsolidate compiler generated dependencies of target liskarm_main[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/liskarm_main.dir/src/main.cpp.o[0m
+[01m[K/workspaces/LiDAR-Liskarm-v1/src/lidar_liskarm_v1/src/main.cpp:[m[K In constructor ‘[01m[KLiskarm_Main::Liskarm_Main()[m[K’:
+[01m[K/workspaces/LiDAR-Liskarm-v1/src/lidar_liskarm_v1/src/main.cpp:19:13:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Ktimer_[m[K’
+   19 |             [01;31m[Ktimer_[m[K = this->create_wall_timer(
+      |             [01;31m[K^~~~~~[m[K
+gmake[2]: *** [CMakeFiles/liskarm_main.dir/build.make:76: CMakeFiles/liskarm_main.dir/src/main.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/liskarm_main.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
