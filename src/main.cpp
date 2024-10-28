@@ -9,6 +9,8 @@
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include "spdlog/sinks/basic_file_sink.h"
 
+#include "wiringPi.h"
+
 int main(int argc, char **argv) {
     // Logger
     auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();

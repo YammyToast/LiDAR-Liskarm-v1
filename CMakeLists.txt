@@ -40,6 +40,8 @@ add_subdirectory(src)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 
+# find_library(WIRINGPI_LIB wiringPi PATHS /lib/sysroot/usr/lib)
+# include_directories(${CMAKE_SOURCE_DIR}/lib/sysroot/usr/include)
 
 # =======================================
 # Links
@@ -48,3 +50,5 @@ link_directories(${CMAKE_SOURCE_DIR}/lib)
 add_executable(${PROJECT_NAME} src/main.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE spdlog)
+
+# target_link_libraries(${PROJECT_NAME} PRIVATE ${WIRINGPI_LIB})
