@@ -1,4 +1,5 @@
 /include/*
 /build/*
 /lib/*
+/sysroot/*
 .vscode
