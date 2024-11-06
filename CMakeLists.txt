@@ -17,19 +17,14 @@ project(
     LANGUAGES CXX
 )
 
-
-
-
-
 # =======================================
 # Fetch Content
 # =======================================
-include(FetchContent)
+# include(FetchContent)
 
 # =======================================
 # Subdirectories
 # =======================================
-
 add_subdirectory(src)
 
 # =======================================
@@ -40,11 +35,9 @@ add_subdirectory(src)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 
+include_directories(include/cpp-httplib)
+
 find_library(PIGPIO_LIB pigpio PATHS ${CMAKE_SYSROOT}/usr/lib NO_DEFAULT_PATH)
-# find_library(WIRINGPI_LIB wiringPi PATHS ${CMAKE_SYSROOT}/usr/lib NO_DEFAULT_PATH)
-# message(STATUS "WiringPi Path: ${WIRINGPI_LIB}")
-# message(STATUS "SYSROOT: ${CMAKE_SYSROOT}/usr/lib")
-message(STATUS "PIGPIO PATH: ${PIGPIO_LIB}")
 
 # =======================================
 # Links
@@ -53,5 +46,4 @@ message(STATUS "PIGPIO PATH: ${PIGPIO_LIB}")
 add_executable(${PROJECT_NAME} src/main.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE spdlog)
-# target_link_libraries(${PROJECT_NAME} PRIVATE ${WIRINGPI_LIB})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PIGPIO_LIB})

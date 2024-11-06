@@ -12,12 +12,15 @@
 
 #include <pigpio.h>
 
+#include "httplib.h"
+
 #define PIN_SERVO_PWM 12
 
 std::atomic<bool> interrupt_flag(false);
 
 int main(int argc, char **argv) {
 
+    // START INIT
     if (gpioInitialise() < 0) {
         std::cerr << "pigpio failed to initialize" << std::endl;
         return 1;
@@ -38,30 +41,38 @@ int main(int argc, char **argv) {
     }
     logger.set_pattern("[%H:%M:%S] [%^%l%$] %v");
     logger.debug("Debug logging on");
+    // END INIT
+    // HTTPSERVER
+    httplib::Server server;
+    server.Get("/", [](const httplib::Request &req, httplib::Response &res) {
+        std::cout << "test" << std::endl;
+        res.set_content("Hello World", "text/plain");
 
+    });
+    server.listen("0.0.0.0", 18080);
     
-    // Pin Setup
-    gpioSetMode(PIN_SERVO_PWM, PI_INPUT);
-    int frequency = 50;
-    gpioSetPWMfrequency(PIN_SERVO_PWM, frequency);
-    int min_pulse_width = 5;
-    int max_pulse_width = 25;
+    // // Pin Setup
+    // gpioSetMode(PIN_SERVO_PWM, PI_INPUT);
+    // int frequency = 50;
+    // gpioSetPWMfrequency(PIN_SERVO_PWM, frequency);
+    // int min_pulse_width = 5;
+    // int max_pulse_width = 25;
 
-    for (int angle = 0; angle <= 180; angle+= 10) {
-        int pulse_width = min_pulse_width + (angle * (max_pulse_width - min_pulse_width) / 180);
+    // for (int angle = 0; angle <= 180; angle+= 10) {
+    //     int pulse_width = min_pulse_width + (angle * (max_pulse_width - min_pulse_width) / 180);
 
-        gpioPWM(PIN_SERVO_PWM, pulse_width / 10);
-        std::cout << "Angle: " << angle << "°, Pulse Width: " << pulse_width << "µs" << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    }
-
-    // while (!interrupt_flag) {
-        
-    //     std::this_thread::sleep_for(std::chrono::seconds(1));
-
+    //     gpioPWM(PIN_SERVO_PWM, pulse_width / 10);
+    //     std::cout << "Angle: " << angle << "°, Pulse Width: " << pulse_width << "µs" << std::endl;
+    //     std::this_thread::sleep_for(std::chrono::milliseconds(500));
     // }
-    gpioPWM(PIN_SERVO_PWM, 0);  // Turn off PWM signal to the pin
-    gpioTerminate();
+
+    // // while (!interrupt_flag) {
+        
+    // //     std::this_thread::sleep_for(std::chrono::seconds(1));
+
+    // // }
+    // gpioPWM(PIN_SERVO_PWM, 0);  // Turn off PWM signal to the pin
+    // gpioTerminate();
     return 0;
 
 } 

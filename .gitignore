@@ -3,3 +3,4 @@
 /lib/*
 /sysroot/*
 .vscode
+.env
