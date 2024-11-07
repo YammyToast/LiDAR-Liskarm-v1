@@ -4,3 +4,4 @@
 /sysroot/*
 .vscode
 .env
+**/node_modules/
