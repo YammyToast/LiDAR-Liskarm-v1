@@ -95,8 +95,14 @@ def main(__args_namespace):
                 # ughh
                 if item == "b\'\'": continue
                 write_log(f"Warning: {item}")
-        # SCP
+        # SSHPASS STEM
         ssh_cmd_components = [*ssh_cmd.split(" "), f"{ssh_password}"]
+        # Make Project directory on target
+        target_dir_cmd_components = [*ssh_cmd_components, "ssh", f"{ssh_username}@{target_ip}", f"[ -d /Liskarm ] && echo 1 || echo 0"]
+        target_dir_result = subprocess.run(target_dir_cmd_components, capture_output=True, text=True)
+        print(target_dir_result)
+
+        # SCP
         scp_cmd_components = [*scp_cmd.split(" "), f"{ssh_username}@{target_ip}:/home/{ssh_username}/"]
         copy_cmd = [*ssh_cmd_components, *scp_cmd_components]
         write_log(f"Running SCP via SSHPass.\nTarget IP: {target_ip}, User: {ssh_username}")

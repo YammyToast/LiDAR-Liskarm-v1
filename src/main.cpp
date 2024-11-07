@@ -2,17 +2,17 @@
 #include <thread>
 #include <atomic>
 #include <chrono>
-
 #include <stdio.h>
 #include <unistd.h>
 
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include "spdlog/sinks/basic_file_sink.h"
-
 #include <pigpio.h>
-
 #include "httplib.h"
+
+#include "shared.cpp"
+#include "webui.cpp"
 
 #define PIN_SERVO_PWM 12
 
@@ -40,14 +40,20 @@ int main(int argc, char **argv) {
         logger.set_level(spdlog::level::debug);
     }
     logger.set_pattern("[%H:%M:%S] [%^%l%$] %v");
-    logger.debug("Debug logging on");
+    
+    shared.logger = std::make_shared<spdlog::logger>(logger);
+
     // END INIT
     // HTTPSERVER
     httplib::Server server;
     server.Get("/", [](const httplib::Request &req, httplib::Response &res) {
-        std::cout << "test" << std::endl;
-        res.set_content("Hello World", "text/plain");
-
+        std::string content = build_webpage();
+        if (!content.empty()) {
+            res.set_content(content, "text/html");
+        } else {
+            res.status = 404;
+            res.set_content("404 Not Found", "text/plain");
+        }        
     });
     server.listen("0.0.0.0", 18080);
     
