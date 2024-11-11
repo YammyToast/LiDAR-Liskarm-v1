@@ -13,6 +13,27 @@
       <div
         class="grid main-grid-area-nav border-accent-1 border-solid border-b-2"
       >
+        <!-- Liskarm Logo and Text Wrapper -->
+        <div class="grid grid-cols-displayColumns">
+          <!-- Logo and Text Internal -->
+          <div class="flex nav-grid-area-internal items-center">
+            <div class="flex h-fit w-fit mr-2">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 128 128"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 64H64V128L51 77L0 64Z" fill="white" />
+                <path d="M128 64H64V128L77 77L128 64Z" fill="white" />
+                <path d="M0 64H64V0L51 51L0 64Z" fill="white" />
+                <path d="M128 64H64V0L77 51L128 64Z" fill="white" />
+              </svg>
+            </div>
+            <div>LISKARM UI</div>
+          </div>
+        </div>
         <!--Nav List Wrapper-->
         <div class="grid grid-cols-displayColumns grid-rows-1 w-screen h-full">
           <!--Nav List Container-->
@@ -25,7 +46,11 @@
         </div>
       </div>
       <div class="main-grid-area-wrapper" id="display-wrapper">
-        <div class="grid grid-cols-displayColumns grid-rows-overviewRows h-full w-full" id="display-overview">
+        <!-- OVERVIEW TAB -->
+        <div
+          class="grid grid-cols-displayColumns grid-rows-overviewRows h-full w-full"
+          id="display-overview"
+        >
           <!--CAMERA-->
           <div
             class="overview-grid-area-camera border-accent-1 border-solid border-2 border-t-0"
@@ -33,15 +58,47 @@
           <!--STATS-->
           <div
             class="overview-grid-area-stats border-accent-1 border-solid border-2 border-t-0"
-          ></div>
+          >
+            <div class="grid-square-title">Stats ▾</div>
+          </div>
           <!--ONGOING PROCESSES-->
           <div
             class="overview-grid-area-proc border-accent-1 border-solid border-b-2"
-          ></div>
+          >
+            <div class="grid-square-title">Ongoing Processes ▾</div>
+          </div>
           <!--ACTIONS-->
           <div
             class="overview-grid-area-actions border-accent-1 border-solid border-2 border-t-0"
-          ></div>
+          >
+            <div class="grid-square-title">Actions ▾</div>
+          </div>
+        </div>
+        <!-- CAMERA TAB -->
+        <div
+          class="grid grid-cols-displayColumns h-full w-full"
+          id="display-camera"
+        >
+          <div class="camera-grid-area-main border-accent-1 border-x-2"></div>
+          <div
+            class="grid grid-cols-cameraBarColumns camera-grid-area-bar border-accent-1 border-2"
+          >
+            <div
+              class="flex border-accent-1 border-r-2 flex-shrink"
+              id="camera-bar-stats"
+            >
+              <div class="grid-square-title">Stats ▾</div>
+            </div>
+            <div
+              class="flex border-accent-1 border-r-2 flex-wrap"
+              id="camera-bar-auxiliary"
+            >
+              <div class="grid-square-title">View ▾</div>
+            </div>
+            <div class="flex border-accent-1" id="camera-bar-controls">
+              <div class="grid-square-title">Robot ▾</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -54,6 +111,36 @@
         nav_window_state: -1,
       };
 
+      const KEYBINDS = {
+        ROBOT_FORWARDS: "W",
+        ROBOT_BACKWARDS: "S",
+        ROBOT_TURN_LEFT: "A",
+        ROBOT_TURN_RIGHT: "D",
+        CAMERA_FULL_SCREEN: "F",
+        CAMERA_COLOUR: "R",
+        CAMERA_LIDAR: "T",
+      };
+
+      const CAMERA_AUXILIARY = new Map([
+        ["Fullscreen", KEYBINDS.CAMERA_FULL_SCREEN],
+        ["Colour", KEYBINDS.CAMERA_COLOUR],
+        ["LIDAR", KEYBINDS.CAMERA_LIDAR],
+      ]);
+
+      const CAMERA_CONTROLS = new Map([
+        ["Forwards", KEYBINDS.ROBOT_FORWARDS],
+        ["Backwards", KEYBINDS.ROBOT_BACKWARDS],
+        ["Turn Left", KEYBINDS.ROBOT_TURN_LEFT],
+        ["Turn Right", KEYBINDS.ROBOT_TURN_RIGHT],
+      ]);
+
+      function make_keyboard_icon(__k) {
+        let key_icon = document.createElement("div");
+        key_icon.className = "keyboard-btn-icon";
+        key_icon.textContent = __k;
+        return key_icon;
+      }
+
       // ==================================
       // DISPLAY FUNCTIONS
       function display_overview() {
@@ -63,6 +150,7 @@
       const DISPLAY_FUNCTIONS = new Map([[1, display_overview], [2], [3], [4]]);
       const DISPLAY_ELEMENTS = new Map([
         [1, document.getElementById("display-overview")],
+        [2, document.getElementById("display-camera")],
       ]);
 
       function change_display(__new_active) {
@@ -70,7 +158,7 @@
         try {
           // hide all and display active
           hide_all_displays();
-          DISPLAY_ELEMENTS.get(__new_active).classList.remove("hidden")
+          DISPLAY_ELEMENTS.get(__new_active).classList.remove("hidden");
           DISPLAY_FUNCTIONS.get(__new_active)();
         } catch (error) {
           console.error(`Unbound display pointer: ${__new_active}`);
@@ -79,7 +167,7 @@
 
       function hide_all_displays() {
         DISPLAY_ELEMENTS.forEach((element, k) => {
-          element.classList.add("hidden")
+          element.classList.add("hidden");
         });
       }
 
@@ -87,7 +175,7 @@
       hide_all_displays();
 
       // ==================================
-      // BUTTONS
+      // NAV BUTTONS
       let nav_btn_style_active =
         "flex h-fit w-100 items-center px-4 py-2 text-lg border-2 border-s-text-color hover:border-accent-2 cursor-pointer duration-200";
       let nav_btn_style_inactive =
@@ -115,10 +203,7 @@
           handle_nav_btn(k);
         });
         // Create key bind icons
-        let key_icon = document.createElement("div");
-        key_icon.className = "keyboard-btn-icon";
-        key_icon.textContent = k;
-        btn.appendChild(key_icon);
+        btn.prepend(make_keyboard_icon(k));
       });
 
       document.addEventListener("keydown", (e) => {
@@ -129,10 +214,38 @@
       });
 
       // Set initial window state and thus button
-      shared.nav_window_state = 1;
+      shared.nav_window_state = 2;
       handle_nav_btn(shared.nav_window_state);
 
       // ==================================
+      // CAMERA BUTTONS
+      let camera_bar_auxiliary = document.getElementById(
+        "camera-bar-auxiliary"
+      );
+
+      let camera_bar_controls = document.getElementById(
+        "camera-bar-controls"
+      );
+
+      function make_keybind_containers(__k, __description) {
+        let container = document.createElement("div");
+        container.className = "camera-keybind-container";
+        container.textContent = __description;
+        container.prepend(make_keyboard_icon(__k));
+        return container;
+      }
+
+      CAMERA_AUXILIARY.forEach((k, description) => {
+        camera_bar_auxiliary.append(
+          make_keybind_containers(k, description)
+        );
+      });
+
+      CAMERA_CONTROLS.forEach((k, description) => {
+        camera_bar_controls.append(
+          make_keybind_containers(k, description)
+        );
+      });
     </script>
   </body>
 </html>

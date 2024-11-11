@@ -6,10 +6,17 @@
 
 @layer components {
   .keyboard-btn-icon {
-    @apply flex h-7 items-center justify-center aspect-square text-sm text-accent-2 ml-2 border-accent-2 border-2 rounded-md;
+    @apply flex h-7 items-center justify-center aspect-square text-sm text-accent-2 mr-2 border-accent-2 border-2 rounded-md;
+  }
+
+  .grid-square-title {
+    @apply flex h-fit w-fit py-1 px-2 font-medium text-accent-2 border-accent-1 border-b-2 border-r-2;
+  }
+
+  .camera-keybind-container {
+    @apply flex h-fit w-fit p-2 text-lg items-center
   }
 }
-
 
 body {
   @apply font-maven;
@@ -18,7 +25,6 @@ body {
   padding: 0;
   margin: 0;
 }
-
 
 .main-grid-area-nav {
   grid-area: 1 / 1 / 2 / 2;
@@ -32,7 +38,26 @@ body {
   grid-area: 1 / 2 / 2 / 12;
 }
 
-.overview-grid-area-camera { grid-area: 1 / 2 / 5 / 7; }
-.overview-grid-area-stats { grid-area: 5 / 2 / 7 / 7; }
-.overview-grid-area-proc { grid-area: 1 / 7 / 7 / 9; }
-.overview-grid-area-actions { grid-area: 1 / 9 / 7 / 12; }
+.overview-grid-area-camera {
+  grid-area: 1 / 2 / 5 / 7;
+}
+
+.overview-grid-area-stats {
+  grid-area: 5 / 2 / 7 / 7;
+}
+
+.overview-grid-area-proc {
+  grid-area: 1 / 7 / 7 / 9;
+}
+
+.overview-grid-area-actions {
+  grid-area: 1 / 9 / 7 / 12;
+}
+
+.camera-grid-area-main {
+  grid-area: 1 / 2 / 8 / 12;
+}
+
+.camera-grid-area-bar {
+  grid-area: 8 / 2 / 9 / 12;
+}

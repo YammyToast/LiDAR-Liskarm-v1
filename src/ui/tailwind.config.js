@@ -23,11 +23,13 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        'displayColumns': "repeat(12, 1fr)"
+        'displayColumns': "repeat(12, 1fr)",
+        'cameraBarColumns': "30% 30% 40%"
       },
       gridTemplateRows: {
         'mainSplit': "repeat(8, 1fr)",
-        'overviewRows': "repeat(6, 1fr)"
+        'overviewRows': "repeat(6, 1fr)",
+        'cameraRows': "repeat(8, 1fr)"
       },
 
     },
