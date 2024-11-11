@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .keyboard-btn-icon {
+    @apply flex h-7 items-center justify-center aspect-square text-sm text-accent-2 ml-2 border-accent-2 border-2 rounded-md;
+  }
+}
+
+
+body {
+  @apply font-maven;
+  @apply bg-background;
+  @apply text-text-color;
+  padding: 0;
+  margin: 0;
+}
+
+
+.main-grid-area-nav {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.main-grid-area-wrapper {
+  grid-area: 2 / 1 / 8 / 2;
+}
+
+.nav-grid-area-internal {
+  grid-area: 1 / 2 / 2 / 12;
+}
+
+
+/* .main-grid-area-1 {
+  grid-area: 1 / 1 / 2 / 13;
+}
+.main-grid-area-2 {
+  grid-area: 2 / 2 / 5 / 5;
+}
+.main-grid-area-3 {
+  grid-area: 5 / 2 / 8 / 5;
+}
+.main-grid-area-4 {
+  grid-area: 2 / 5 / 8 / 8;
+}
+.main-grid-area-5 {
+  grid-area: 2 / 8 / 8 / 12;
+} */

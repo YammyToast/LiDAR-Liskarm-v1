@@ -31,7 +31,6 @@ add_subdirectory(src)
 # Libs
 # =======================================
 
-
 include_directories(${CMAKE_SOURCE_DIR}/include)
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 

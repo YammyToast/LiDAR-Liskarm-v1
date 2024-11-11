@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liskarm UI</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+  </head>
+  <body>
+    <!--MAIN-->
+    <div class="grid grid-rows-mainSplit grid-cols-1 w-screen h-screen">
+      <!--NAV-->
+      <div
+        class="grid main-grid-area-nav border-accent-1 border-solid border-b-2"
+      >
+        <!--Nav List Wrapper-->
+        <div class="grid grid-cols-displayColumns grid-rows-1 w-screen h-full">
+          <!--Nav List Container-->
+          <div class="grid grid-cols-6 nav-grid-area-internal items-end">
+            <div id="nav-btn-overview">Overview</div>
+            <div id="nav-btn-camera">Camera</div>
+            <div id="nav-btn-actionsheet">Actions</div>
+            <div id="nav-btn-log">Log</div>
+          </div>
+        </div>
+      </div>
+      <div class="main-grid-area-wrapper" id="display-wrapper">
+        <div class="grid grid-cols-displayColumns" id="display-overview">
+          <!--CAMERA-->
+          <div
+            class="main-grid-area-2 border-accent-1 border-solid border-2 border-t-0"
+          ></div>
+          <!--STATS-->
+          <div
+            class="main-grid-area-3 border-accent-1 border-solid border-2 border-t-0"
+          ></div>
+          <!--ONGOING PROCESSES-->
+          <div
+            class="main-grid-area-4 border-accent-1 border-solid border-b-2"
+          ></div>
+          <!--BUTTON ZONE-->
+          <div
+            class="main-grid-area-5 border-accent-1 border-solid border-2 border-t-0"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ==================================
+      // DISPLAY FUNCTIONS
+      function display_overview() {
+        console.log("test");
+      }
+
+      let display_functions = new Map([[1, display_overview], [2], [3], [4]]);
+
+      function change_display(__new_active) {
+        shared.nav_window_state = __new_active;
+        try {
+          display_functions.get(__new_active)();
+        } catch (error) {
+          console.error(`Unbound display pointer: ${__new_active}`);
+        }
+      }
+
+      // ==================================
+      // SHARED
+
+      const shared = {
+        nav_window_state: -1,
+      };
+
+      // ==================================
+      // BUTTONS
+      let nav_btn_style_active =
+        "flex h-fit w-100 items-center px-4 py-2 text-lg border-2 border-s-text-color hover:border-accent-2 cursor-pointer duration-200";
+      let nav_btn_style_inactive =
+        "flex h-fit w-100 items-center px-4 py-2 text-lg border-2 border-b-background border-accent-1 hover:border-accent-2 cursor-pointer duration-200";
+
+      let nav_btn_map = new Map([
+        [1, document.getElementById("nav-btn-overview")],
+        [2, document.getElementById("nav-btn-camera")],
+        [3, document.getElementById("nav-btn-actionsheet")],
+        [4, document.getElementById("nav-btn-log")],
+      ]);
+
+      function handle_nav_btn(__new_active) {
+        nav_btn_map.forEach((btn, k) => {
+          btn.className = nav_btn_style_inactive;
+        });
+        nav_btn_map.get(__new_active).className = nav_btn_style_active;
+        // Update the display with the new
+        change_display(__new_active);
+      }
+
+      nav_btn_map.forEach((btn, k) => {
+        // Bind nav buttons to function
+        btn.addEventListener("click", () => {
+          handle_nav_btn(k);
+        });
+        // Create key bind icons
+        let key_icon = document.createElement("div");
+        key_icon.className = "keyboard-btn-icon";
+        key_icon.textContent = k;
+        btn.appendChild(key_icon);
+
+        // Create key binds
+      });
+
+      document.addEventListener("keydown", (e) => {
+        let int_parse = parseInt(e.key);
+        console.log(nav_btn_map.has(int_parse));
+        if (nav_btn_map.has(int_parse)) {
+          handle_nav_btn(int_parse);
+        }
+      });
+
+      // Set initial window state and thus button
+      shared.nav_window_state = 1;
+      handle_nav_btn(shared.nav_window_state);
+
+      // ==================================
+    </script>
+  </body>
+</html>

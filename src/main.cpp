@@ -45,40 +45,40 @@ int main(int argc, char **argv) {
 
     // END INIT
     // HTTPSERVER
-    httplib::Server server;
-    server.Get("/", [](const httplib::Request &req, httplib::Response &res) {
-        std::string content = build_webpage();
-        if (!content.empty()) {
-            res.set_content(content, "text/html");
-        } else {
-            res.status = 404;
-            res.set_content("404 Not Found", "text/plain");
-        }        
-    });
-    server.listen("0.0.0.0", 18080);
+    // httplib::Server server;
+    // server.Get("/", [](const httplib::Request &req, httplib::Response &res) {
+    //     std::string content = build_webpage();
+    //     if (!content.empty()) {
+    //         res.set_content(content, "text/html");
+    //     } else {
+    //         res.status = 404;
+    //         res.set_content("404 Not Found", "text/plain");
+    //     }        
+    // });
+    // server.listen("0.0.0.0", 18080);
     
-    // // Pin Setup
-    // gpioSetMode(PIN_SERVO_PWM, PI_INPUT);
-    // int frequency = 50;
-    // gpioSetPWMfrequency(PIN_SERVO_PWM, frequency);
-    // int min_pulse_width = 5;
-    // int max_pulse_width = 25;
+    // Pin Setup
+    gpioSetMode(PIN_SERVO_PWM, PI_INPUT);
+    int frequency = 50;
+    gpioSetPWMfrequency(PIN_SERVO_PWM, frequency);
+    int min_pulse_width = 5;
+    int max_pulse_width = 25;
 
-    // for (int angle = 0; angle <= 180; angle+= 10) {
-    //     int pulse_width = min_pulse_width + (angle * (max_pulse_width - min_pulse_width) / 180);
+    for (int angle = 0; angle <= 180; angle+= 10) {
+        int pulse_width = min_pulse_width + (angle * (max_pulse_width - min_pulse_width) / 180);
 
-    //     gpioPWM(PIN_SERVO_PWM, pulse_width / 10);
-    //     std::cout << "Angle: " << angle << "°, Pulse Width: " << pulse_width << "µs" << std::endl;
-    //     std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    // }
+        gpioPWM(PIN_SERVO_PWM, pulse_width / 10);
+        std::cout << "Angle: " << angle << "°, Pulse Width: " << pulse_width << "µs" << std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    }
 
-    // // while (!interrupt_flag) {
+    // while (!interrupt_flag) {
         
-    // //     std::this_thread::sleep_for(std::chrono::seconds(1));
+    //     std::this_thread::sleep_for(std::chrono::seconds(1));
 
-    // // }
-    // gpioPWM(PIN_SERVO_PWM, 0);  // Turn off PWM signal to the pin
-    // gpioTerminate();
+    // }
+    gpioPWM(PIN_SERVO_PWM, 0);  // Turn off PWM signal to the pin
+    gpioTerminate();
     return 0;
 
 } 
