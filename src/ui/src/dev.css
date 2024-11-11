@@ -32,19 +32,7 @@ body {
   grid-area: 1 / 2 / 2 / 12;
 }
 
-
-/* .main-grid-area-1 {
-  grid-area: 1 / 1 / 2 / 13;
-}
-.main-grid-area-2 {
-  grid-area: 2 / 2 / 5 / 5;
-}
-.main-grid-area-3 {
-  grid-area: 5 / 2 / 8 / 5;
-}
-.main-grid-area-4 {
-  grid-area: 2 / 5 / 8 / 8;
-}
-.main-grid-area-5 {
-  grid-area: 2 / 8 / 8 / 12;
-} */
+.overview-grid-area-camera { grid-area: 1 / 2 / 5 / 7; }
+.overview-grid-area-stats { grid-area: 5 / 2 / 7 / 7; }
+.overview-grid-area-proc { grid-area: 1 / 7 / 7 / 9; }
+.overview-grid-area-actions { grid-area: 1 / 9 / 7 / 12; }

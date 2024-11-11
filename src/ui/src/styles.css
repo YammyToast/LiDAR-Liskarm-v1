@@ -581,6 +581,10 @@ video {
   display: grid;
 }
 
+.hidden{
+  display: none;
+}
+
 .h-fit{
   height: -moz-fit-content;
   height: fit-content;
@@ -592,6 +596,10 @@ video {
 
 .h-screen{
   height: 100vh;
+}
+
+.w-full{
+  width: 100%;
 }
 
 .w-screen{
@@ -620,6 +628,10 @@ video {
 
 .grid-rows-mainSplit{
   grid-template-rows: repeat(8, 1fr);
+}
+
+.grid-rows-overviewRows{
+  grid-template-rows: repeat(6, 1fr);
 }
 
 .items-end{
@@ -702,21 +714,21 @@ body{
   grid-area: 1 / 2 / 2 / 12;
 }
 
-/* .main-grid-area-1 {
-  grid-area: 1 / 1 / 2 / 13;
+.overview-grid-area-camera {
+  grid-area: 1 / 2 / 5 / 7;
 }
-.main-grid-area-2 {
-  grid-area: 2 / 2 / 5 / 5;
+
+.overview-grid-area-stats {
+  grid-area: 5 / 2 / 7 / 7;
 }
-.main-grid-area-3 {
-  grid-area: 5 / 2 / 8 / 5;
+
+.overview-grid-area-proc {
+  grid-area: 1 / 7 / 7 / 9;
 }
-.main-grid-area-4 {
-  grid-area: 2 / 5 / 8 / 8;
+
+.overview-grid-area-actions {
+  grid-area: 1 / 9 / 7 / 12;
 }
-.main-grid-area-5 {
-  grid-area: 2 / 8 / 8 / 12;
-} */
 
 .hover\:border-accent-2:hover{
   --tw-border-opacity: 1;

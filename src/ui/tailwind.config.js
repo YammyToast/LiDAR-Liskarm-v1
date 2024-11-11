@@ -27,6 +27,7 @@ module.exports = {
       },
       gridTemplateRows: {
         'mainSplit': "repeat(8, 1fr)",
+        'overviewRows': "repeat(6, 1fr)"
       },
 
     },
