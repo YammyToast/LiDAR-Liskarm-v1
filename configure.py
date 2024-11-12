@@ -3,6 +3,7 @@ import os
 import re
 from datetime import datetime
 import subprocess
+import glob
 
 # =======================================
 
@@ -11,6 +12,13 @@ make_cmd = r"make"
 # scp_cmd = r"scp ./Liskarm james@raspberrypi.local:/home/james/"
 ssh_cmd = r"sshpass -p"
 scp_cmd = r"scp ./Liskarm"
+
+# =======================================
+
+ui_dir = r"src/ui/"
+
+tailwind_cmd = r"npx tailwindcss -i src/dev.css -o src/styles.css"
+gulp_cmd = r"npm run inline"
 
 # =======================================
 
@@ -108,7 +116,6 @@ def handle_target_project_directory(
             f"{__target_dir}",
         ]
         res = subprocess.run(target_dir_make_cmd_components, capture_output=True)
-        print(res)
 
 
 def run_scp(__ssh_cmd_components, __ssh_username, __target_ip, __target_dir):
@@ -130,6 +137,69 @@ def run_scp(__ssh_cmd_components, __ssh_username, __target_ip, __target_dir):
 # =======================================
 
 
+def run_build_tailwind():
+    tailwind_cmd_components = tailwind_cmd.split(" ")
+    write_log(f"Running Tailwind Build.\n\t{tailwind_cmd_components}")
+    tailwind_result = subprocess.run(
+        tailwind_cmd_components, cwd=ui_dir, capture_output=True
+    )
+    if tailwind_result.returncode != 0:
+        raise Exception(
+            f"Tailwind Failed: \n\tstderr - {tailwind_result.stderr},\n\tstdout - {tailwind_result.stdout}"
+        )
+
+
+def run_gulp():
+    gulp_cmd_components = gulp_cmd.split(" ")
+    write_log(f"Running Gulp Inline Process\n\t{gulp_cmd_components}")
+    gulp_result = subprocess.run(gulp_cmd_components, cwd=ui_dir, capture_output=True)
+    if gulp_result.returncode != 0:
+        raise Exception(
+            f"Gulp Failed: \n\tstderr - {gulp_result.stderr},\n\tstdout - {gulp_result.stdout}"
+        )
+
+
+def handle_target_assets_dir(
+    __ssh_cmd_components, __ssh_username, __target_ip, __target_dir
+):
+    target_dir_check_cmd_components = [
+        *__ssh_cmd_components,
+        "ssh",
+        f"{__ssh_username}@{__target_ip}",
+        f"[ -d {__target_dir}assets/ ] && echo 1 || echo 0",
+    ]
+    write_log("Checking /assets exists in target's project dir")
+    target_dir_check_results = subprocess.run(
+        target_dir_check_cmd_components, capture_output=True, text=True
+    )
+    if "0" in target_dir_check_results.stdout:
+        write_log("/assets directory does not exist on host, creating...")
+        target_dir_make_cmd_components = [
+            *__ssh_cmd_components,
+            "ssh",
+            f"{__ssh_username}@{__target_ip}",
+            "mkdir",
+            f"{__target_dir}assets",
+        ]
+        res = subprocess.run(target_dir_make_cmd_components, capture_output=True)
+
+
+def run_copy_dist(__ssh_cmd_components, __ssh_username, __target_ip, __target_dir):
+    files = glob.glob("dist/*", root_dir=ui_dir, recursive=True)
+    scp_cmd_components = [
+        "scp",
+        *files,
+        f"{__ssh_username}@{__target_ip}:{__target_dir}assets",
+    ]
+    copy_cmd = [*__ssh_cmd_components, *scp_cmd_components]
+    write_log(f"Running SCP on dist/* via SSHPass.\nTarget IP: {__target_ip}, User: {__ssh_username}\nFiles:{files}")
+    copy_result = subprocess.run(copy_cmd, cwd=ui_dir, capture_output=True)
+    print(copy_result)
+
+
+# =======================================
+
+
 def main(__args_namespace):
     write_log(f"Liskarm configure.py")
     no_copy = __args_namespace.no_copy
@@ -142,14 +212,16 @@ def main(__args_namespace):
         f"Building with: Password File Path=\"{password_file_path}\" | Copy To Target={'OFF' if no_copy else 'ON'}"
     )
 
+    if os.path.isfile(password_file_path) == False:
+        raise FileNotFoundError(
+            f"could not find provided password file at path: {password_file_path}"
+        )
+    ssh_username = read_username(username_file_path)
+    ssh_password = read_password(password_file_path)
+    target_dir = f"/home/{ssh_username}/Liskarm/"
+    ssh_cmd_components = [*ssh_cmd.split(" "), f"{ssh_password}"]
+
     try:
-        if os.path.isfile(password_file_path) == False:
-            raise FileNotFoundError(
-                f"could not find provided password file at path: {password_file_path}"
-            )
-        ssh_username = read_username(username_file_path)
-        ssh_password = read_password(password_file_path)
-        target_dir = f"/home/{ssh_username}/Liskarm/"
 
         # BUILD START =================
         # Build Directory
@@ -159,7 +231,6 @@ def main(__args_namespace):
         # Make
         run_make(make_jobs)
         # SSHPASS STEM
-        ssh_cmd_components = [*ssh_cmd.split(" "), f"{ssh_password}"]
         # Make Project directory on target
         handle_target_project_directory(
             ssh_cmd_components, ssh_username, target_ip, target_dir
@@ -173,6 +244,17 @@ def main(__args_namespace):
 
     try:
         write_log(f"Compiling Web GUI")
+        # Run tailwind build
+        run_build_tailwind()
+        # Run gulp
+        run_gulp()
+        # Make assets directory on target
+        handle_target_assets_dir(
+            ssh_cmd_components, ssh_username, target_ip, target_dir
+        )
+        # Copy dist directory into assets on target
+        run_copy_dist(ssh_cmd_components, ssh_username, target_ip, target_dir)
+        # Done
     except Exception as e:
         raise (e)
 

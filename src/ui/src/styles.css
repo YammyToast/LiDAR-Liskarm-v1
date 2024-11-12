@@ -642,6 +642,10 @@ video {
   margin-right: 0.5rem;
 }
 
+.inline{
+  display: inline;
+}
+
 .flex{
   display: flex;
 }
@@ -678,10 +682,6 @@ video {
 
 .w-screen{
   width: 100vw;
-}
-
-.flex-initial{
-  flex: 0 1 auto;
 }
 
 .flex-shrink{
@@ -730,10 +730,6 @@ video {
 
 .items-center{
   align-items: center;
-}
-
-.gap-0{
-  gap: 0px;
 }
 
 .border-2{
